@@ -26,12 +26,13 @@ public class MethodsGET extends MethodsProviderBase {
 
     private Response getStudentWithIdResponse(int id) {
         return given()
-                .spec(requestSpecificationProvider.getRequestSpecificationForGetAndPutWithId(id))
+                .spec(requestSpecificationProvider.getRequestSpecificationWithId(id))
                 .when()
                 .get()
                 .then()
-                .spec(responseSpecificationProvider.getResponseSpecificationForGetAndPut())
+                .spec(responseSpecificationProvider.getResponseSpecification200())
                 .extract().response();
+
     }
 
 

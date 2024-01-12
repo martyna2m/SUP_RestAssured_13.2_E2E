@@ -6,18 +6,18 @@ import static io.restassured.RestAssured.given;
 
 public class MethodsPOST extends MethodsProviderBase {
 
-    public int createStudentAndGetId(Student studentObject) {
+    public void createStudent(Student studentObject) {
         String stringId = given()
-                .spec(requestSpecificationProvider.getRequestSpecificationForPost()).when()
+                .spec(requestSpecificationProvider.getRequestSpecification()).when()
                 .body(studentObject)
                 .post()
                 .then()
-                .spec(responseSpecificationProvider.getResponseSpecificationForPost(studentObject))
+                .spec(responseSpecificationProvider.getResponseSpecification201(studentObject))
                 .extract().response().path("id").toString();
 
         int id = Integer.parseInt(stringId);
         studentObject.setId(id);
-        return id;
+
     }
 
 

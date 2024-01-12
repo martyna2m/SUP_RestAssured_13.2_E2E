@@ -6,13 +6,12 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.ResponseSpecification;
 import models.Student;
 
-import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 
 public class ResponseSpecificationProvider {
 
 
-    public ResponseSpecification getResponseSpecificationForPost(Student student) {
+    public ResponseSpecification getResponseSpecification201(Student student) {
         return new ResponseSpecBuilder()
                 .expectBody("id", not("0"))
                 .build()
@@ -20,11 +19,12 @@ public class ResponseSpecificationProvider {
                 .statusCode(201);
 
     }
-public ResponseSpecification getResponseSpecificationForGetAndPut() {
-    ResponseSpecification responseSpecification = RestAssured.expect();
-    responseSpecification.contentType(ContentType.JSON);
-    responseSpecification.statusCode(200);
-    return responseSpecification;
+
+    public ResponseSpecification getResponseSpecification200() {
+        ResponseSpecification responseSpecification = RestAssured.expect();
+        responseSpecification.contentType(ContentType.JSON);
+        responseSpecification.statusCode(200);
+        return responseSpecification;
     }
 
 

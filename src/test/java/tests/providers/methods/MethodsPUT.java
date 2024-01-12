@@ -8,10 +8,10 @@ public class MethodsPUT extends MethodsProviderBase {
 
     public void updateStudentData(Student student) {
         given()
-                .spec(requestSpecificationProvider.getRequestSpecificationForGetAndPutWithId(student.getId())).when()
+                .spec(requestSpecificationProvider.getRequestSpecificationWithId(student.getId())).when()
                 .body(student)
                 .put()
                 .then()
-                .spec(responseSpecificationProvider.getResponseSpecificationForGetAndPut());
+                .spec(responseSpecificationProvider.getResponseSpecification200());
     }
 }

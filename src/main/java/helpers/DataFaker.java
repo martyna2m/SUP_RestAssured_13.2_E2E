@@ -12,10 +12,11 @@ public class DataFaker {
     private Faker faker = new Faker(new Locale("en-US"));
     private FakeValuesService fakeValuesService = new FakeValuesService(new Locale("en-US"), new RandomService());
 
+
+
     public String getFakeName() {
         return faker.name().firstName();
     }
-
 
     public String getFakeLastName() {
         return faker.name().lastName();
