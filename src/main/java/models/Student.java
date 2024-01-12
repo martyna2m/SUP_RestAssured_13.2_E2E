@@ -6,6 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Student {
+    private int id;
     private String first_name;
     private String middle_name;
     private String last_name;
@@ -14,7 +15,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{firstName='" + first_name + '\'' +
+        return "Student{id = " + id + ", firstName='" + first_name + '\'' +
                 ", middleName='" + middle_name + '\'' +
                 ", lastName='" + last_name + '\'' +
                 ", dateOfBirth='" + date_of_birth + '\'' +
@@ -30,12 +31,17 @@ public class Student {
 
 
     public static final class Builder {
+        private int id;
         private String first_name;
         private String middle_name;
         private String last_name;
         private String date_of_birth;
 
 
+        public Builder id(int id) {
+            this.id = id;
+            return this;
+        }
         public Builder firstName(String firstName) {
             this.first_name = firstName;
             return this;

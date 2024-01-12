@@ -4,7 +4,7 @@ import models.Student;
 
 import static io.restassured.RestAssured.given;
 
-public class PostMethodsProvider extends MethodsProviderBase {
+public class MethodsPOST extends MethodsProviderBase {
 
     public int createStudentAndGetId(Student studentObject) {
         String stringId = given()
@@ -14,9 +14,11 @@ public class PostMethodsProvider extends MethodsProviderBase {
                 .then()
                 .spec(responseSpecificationProvider.getResponseSpecificationForPost(studentObject))
                 .extract().response().path("id").toString();
-        return Integer.parseInt(stringId);
-    }
 
+        int id = Integer.parseInt(stringId);
+        studentObject.setId(id);
+        return id;
+    }
 
 
 }

@@ -6,12 +6,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class StudentDetails {
-    private String status;
-    private StudentData data;
+    private Boolean status;
+    private Student student;
 
-    public StudentDetails(String status, StudentData data) {
+    public StudentDetails(Boolean status, Student student) {
         this.status = status;
-        this.data = data;
+        this.student = student;
     }
 
     public StudentDetails() {
@@ -21,7 +21,7 @@ public class StudentDetails {
     public String toString() {
         return "StudentDetails{" +
                 "status='" + status + '\'' +
-                ", data=" + data +
+                ", " + student +
                 '}';
     }
 }
