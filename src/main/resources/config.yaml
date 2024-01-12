@@ -1,0 +1,15 @@
+configurationProperties:
+  baseUrl: https://thetestingworldapi.com/
+  detailsSuffix: api/studentsDetails
+  detailsSuffixWithId: api/studentsDetails/{id}
+
+
+testData:
+ dateFormat: MM/dd/yyyy
+
+ student1:
+  firstName: Alexander
+  middleName: Aaron
+  lastName: Hamilton
+  dateOfBirth: 05/01/1970
+
