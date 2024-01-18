@@ -24,7 +24,8 @@ public class End2EndTest extends TestBase {
 
         //GET
         actualStudentDetails = methodsGET.getStudentDetails(studentObject.getId());
-        Assertions.assertThat(actualStudentDetails.getStatus()).isEqualTo(true);
+        Assertions.assertThat(actualStudentDetails).usingRecursiveComparison().isEqualTo(expectedStudentDetails);
+
 
         //PUT
         studentObject.setMiddle_name(dataFaker.getFakeName());
@@ -33,8 +34,7 @@ public class End2EndTest extends TestBase {
 
         //GET
         actualStudentDetails = methodsGET.getStudentDetails(studentObject.getId());
-        Assertions.assertThat(actualStudentDetails.getStudent().getMiddle_name())
-                .isEqualTo(studentObject.getMiddle_name());
+        Assertions.assertThat(actualStudentDetails).usingRecursiveComparison().isEqualTo(expectedStudentDetails);
 
         //DELETE
         methodsDELETE.deleteStudent(studentObject.getId());
